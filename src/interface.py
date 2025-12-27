@@ -1,4 +1,5 @@
 import sys
+import random
 from agents.agent_room_booking import BookingAgent
 from ontology.dei_department import *
 from datetime import datetime, timedelta, date
@@ -54,341 +55,333 @@ def management_menu():
         elif choice == '5': class_mgmt()
         elif choice == '6': clean_onto()
         elif choice == '0': main_menu()
+        else:
+            print("Invalid option. Please try again.")
 
 def room_mgmt():
-    print("\n[Room Management]\n")
-    print("1. Add Room\n2. List Rooms\n0. Back\n")
-    c = input("Choice: ")
-    if c == '1':
-        # 1. Validate Name (must not be empty)
-        while True:
-            name = input("Name: ").strip()
-            if name:
-                break
-            print("Error: Name cannot be empty.")
-
-        # 2. Validate Capacity (must be an integer > 0)
-        while True:
-            try:
-                cap = int(input("Capacity: "))
-                if cap > 0:
+    while True:
+        print("\n[Room Management]\n")
+        print("1. Add Room\n2. List Rooms\n0. Back\n")
+        c = input("Choice: ")
+        if c == '1':
+            # 1. Validate Name (must not be empty)
+            while True:
+                name = input("Name: ").strip()
+                if name:
                     break
-                print("Error: Capacity must be greater than 0.")
-            except ValueError:
-                print("Error: Please enter a valid whole number.")
+                print("Error: Name cannot be empty.")
 
-        # 3. Validate Projector (must be y or n)
-        while True:
-            proj_input = input("Has Projector? (y/n): ").lower().strip()
-            if proj_input in ['y', 'n']:
-                proj = (proj_input == 'y')
-                break
-            print("Error: Please enter only 'y' for yes or 'n' for no.")
-        _ , msg = add_room(name, cap, proj)
-        print(msg)
-        room_mgmt()
-    elif c == '2':
-        rooms = list(onto.Room.instances())
-        
-        if not rooms:
-            print("\nNo rooms found in the department.")
+            # 2. Validate Capacity (must be an integer > 0)
+            while True:
+                try:
+                    cap = int(input("Capacity: "))
+                    if cap > 0:
+                        break
+                    print("Error: Capacity must be greater than 0.")
+                except ValueError:
+                    print("Error: Please enter a valid whole number.")
+
+            # 3. Validate Projector (must be y or n)
+            while True:
+                proj_input = input("Has Projector? (y/n): ").lower().strip()
+                if proj_input in ['y', 'n']:
+                    proj = (proj_input == 'y')
+                    break
+                print("Error: Please enter only 'y' for yes or 'n' for no.")
+            _ , msg = add_room(name, cap, proj)
+            print(msg)
+        elif c == '2':
+            rooms = list(onto.Room.instances())
+            
+            if not rooms:
+                print("\nNo rooms found in the department.")
+            else:
+                print("\n--- List of Registered Rooms ---")
+                for r in rooms:
+                    # Check for equipment
+                    eq_list = [e.has_name for e in r.has_equipment]
+                    equipment_str = ", ".join(eq_list) if eq_list else "None"
+                    
+                    print(f"Room: {r.has_name}")
+                    print(f" - Capacity: {r.has_capacity}")
+                    print(f" - Equipment: {equipment_str}")
+                    print(f" - Accumulated Usage: {r.accumulated_usage} hours")
+                    
+                    # Intelligence Hint: Highlight if it needs attention
+                    if r in onto.RoomNeedsAttention.instances():
+                        print("STATUS: Requires Maintenance/Cleaning")
+                    
+                    print("-" * 20)
+        elif c == '0':
+            return
         else:
-            print("\n--- List of Registered Rooms ---")
-            for r in rooms:
-                # Check for equipment
-                eq_list = [e.has_name for e in r.has_equipment]
-                equipment_str = ", ".join(eq_list) if eq_list else "None"
-                
-                print(f"Room: {r.has_name}")
-                print(f" - Capacity: {r.has_capacity}")
-                print(f" - Equipment: {equipment_str}")
-                print(f" - Accumulated Usage: {r.accumulated_usage} hours")
-                
-                # Intelligence Hint: Highlight if it needs attention
-                if r in onto.RoomNeedsAttention.instances():
-                    print("STATUS: Requires Maintenance/Cleaning")
-                
-                print("-" * 20)
-        
-        room_mgmt()
-    elif c == '0':
-        management_menu()
-    else:
-        print("Invalid choice. Choose option 1, 2 or 0 to Back")
-        room_mgmt()
+            print("Invalid option. Please try again.")
 
 def teacher_mgmt():
-    print("\n[Teacher Management]\n")
-    print("1. Add Teacher\n2. List Teachers\n0. Back\n")
-    c = input("Choice: ")
+    while True:
+        print("\n[Teacher Management]\n")
+        print("1. Add Teacher\n2. List Teachers\n0. Back\n")
+        c = input("Choice: ")
 
-    if c == '1':
-        # 1. Validate Name (must not be empty)
-        while True:
-            name = input("Name: ").strip()
-            if name:
-                break
-            print("Error: Name cannot be empty.")
-
-        # 2. Validate ID
-        while True:
-            try:
-                id_num = int(input("ID: "))
-                if id_num > 99:
+        if c == '1':
+            # 1. Validate Name (must not be empty)
+            while True:
+                name = input("Name: ").strip()
+                if name:
                     break
-                print("Error: ID must have more than 2 digits.")
-            except ValueError:
-                print("Error: ID must be a valid number.")
+                print("Error: Name cannot be empty.")
 
-        # 3. Validate Courses
-        while True:
-            courses_raw = input("Courses (comma separated): ").split(",")
-            processed_courses = [c.strip().upper() for c in courses_raw if c.strip()]
+            # 2. Validate ID
+            while True:
+                try:
+                    id_num = int(input("ID: "))
+                    if id_num > 99:
+                        break
+                    print("Error: ID must have more than 2 digits.")
+                except ValueError:
+                    print("Error: ID must be a valid number.")
+
+            # 3. Validate Courses
+            while True:
+                courses_raw = input("Courses (comma separated): ").split(",")
+                processed_courses = [c.strip().upper() for c in courses_raw if c.strip()]
+                
+                if not processed_courses:
+                    print("Error: Please enter at least one course.")
+                    continue
+                
+                existing_courses = [course.has_name for course in onto.Course.instances()]
+                
+                # Identify which entered courses are missing from the ontology
+                missing_courses = [c for c in processed_courses if c not in existing_courses]
+                
+                if missing_courses:
+                    print(f"Error: The following courses do not exist: {', '.join(missing_courses)}")
+                    print("Note: Courses must be added via 'Course Management' first.")
+                    valid_format = False
+                    teacher_mgmt()
+                else:
+                    valid_format = True
+
+                if valid_format:
+                    courses = processed_courses
+                    break
+            _ , msg = add_teacher(name, id_num, courses)
+            print(msg)
+        elif c == '2':
+            teachers = list(onto.Teacher.instances())
             
-            if not processed_courses:
-                print("Error: Please enter at least one course.")
-                continue
-            
-            existing_courses = [course.has_name for course in onto.Course.instances()]
-            
-            # Identify which entered courses are missing from the ontology
-            missing_courses = [c for c in processed_courses if c not in existing_courses]
-            
-            if missing_courses:
-                print(f"Error: The following courses do not exist: {', '.join(missing_courses)}")
-                print("Note: Courses must be added via 'Course Management' first.")
-                valid_format = False
-                teacher_mgmt()
+            if not teachers:
+                print("\nNo teachers found in the department.")
             else:
-                valid_format = True
-
-            if valid_format:
-                courses = processed_courses
-                break
-        _ , msg = add_teacher(name, id_num, courses)
-        print(msg)
-        teacher_mgmt()
-    elif c == '2':
-        teachers = list(onto.Teacher.instances())
-        
-        if not teachers:
-            print("\nNo teachers found in the department.")
+                print("\n--- List of Registered Teachers ---")
+                for t in teachers:
+                    # Extract course details (Name and Year/Semester)
+                    course_details = [f"{c.has_name} (Y{c.has_year}S{c.has_semester})" for c in t.teaches]
+                    
+                    print(f"ID: {t.has_id}")
+                    print(f" - Name: {t.has_name}")
+                    print(f" - Courses Taught: {', '.join(course_details) if course_details else 'None Assigned'}")
+                    
+                    # Intelligence Hint: Check for Overloaded status (Inferred Class)
+                    if t in onto.OverloadedTeacher.instances():
+                        print(" ! STATUS: Overloaded (Teaches > 3 Courses)")
+                    
+                    print("-" * 20)
+        elif c == '0':
+            return
         else:
-            print("\n--- List of Registered Teachers ---")
-            for t in teachers:
-                # Extract course details (Name and Year/Semester)
-                course_details = [f"{c.has_name} (Y{c.has_year}S{c.has_semester})" for c in t.teaches]
-                
-                print(f"ID: {t.has_id}")
-                print(f" - Name: {t.has_name}")
-                print(f" - Courses Taught: {', '.join(course_details) if course_details else 'None Assigned'}")
-                
-                # Intelligence Hint: Check for Overloaded status (Inferred Class)
-                if t in onto.OverloadedTeacher.instances():
-                    print(" ! STATUS: Overloaded (Teaches > 3 Courses)")
-                
-                print("-" * 20)
-        teacher_mgmt()
-    elif c == '0':
-        management_menu()
-    else:
-        print("Invalid choice. Choose option 1 or 2")
-        teacher_mgmt()
+            print("Invalid option. Please try again.")
 
 def student_mgmt():
-    print("\n[Student Management]\n")
-    print("1. Add Student\n2. List Students\n0. Back\n")
-    c = input("Choice: ")
-    if c == '1':
-        # 1. Validate Name (must not be empty)
-        while True:
-            name = input("Name: ").strip()
-            if name:
-                break
-            print("Error: Name cannot be empty.")
-        
-        # 2. Validate ID
-        while True:
-            try:
-                id_num = int(input("ID: "))
-                if id_num > 99:
+    while True:
+        print("\n[Student Management]\n")
+        print("1. Add Student\n2. List Students\n0. Back\n")
+        c = input("Choice: ")
+        if c == '1':
+            # 1. Validate Name (must not be empty)
+            while True:
+                name = input("Name: ").strip()
+                if name:
                     break
-                print("Error: ID must have more than 2 digits.")
-            except ValueError:
-                print("Error: ID must be a valid number.")
+                print("Error: Name cannot be empty.")
+            
+            # 2. Validate ID
+            while True:
+                try:
+                    id_num = int(input("ID: "))
+                    if id_num > 99:
+                        break
+                    print("Error: ID must have more than 2 digits.")
+                except ValueError:
+                    print("Error: ID must be a valid number.")
 
-        # 3. Validate Class
-        cls = input("Class Code: ")
-        
-        # 4. Validate Year
-        while True:
-            try:
-                yr = int(input("Year: "))
-                if yr < 4 or yr > 0:
-                    break
-                print("Error: Year must be 1, 2 or 3.")
-            except ValueError:
-                print("Error: Year must be a valid number.")
+            # 3. Validate Class
+            cls = input("Class Code: ")
+            
+            # 4. Validate Year
+            while True:
+                try:
+                    yr = int(input("Year: "))
+                    if yr < 4 or yr > 0:
+                        break
+                    print("Error: Year must be 1, 2 or 3.")
+                except ValueError:
+                    print("Error: Year must be a valid number.")
 
-        # 5. Validate Courses
-        while True:
-            courses_raw = input("Courses (comma separated): ").split(",")
-            processed_courses = [c.strip().upper() for c in courses_raw if c.strip()]
-            
-            if not processed_courses:
-                print("Error: Please enter at least one course.")
-                continue
-            
-            existing_courses = [course.has_name for course in onto.Course.instances()]
-            
-            # Identify which entered courses are missing from the ontology
-            missing_courses = [c for c in processed_courses if c not in existing_courses]
-            
-            if missing_courses:
-                print(f"Error: The following courses do not exist: {', '.join(missing_courses)}")
-                print("Note: Courses must be added via 'Course Management' first.")
-                valid_format = False
-            else:
-                valid_format = True
-
-            if valid_format:
-                courses = processed_courses
-                break
-        _ , msg = add_student(name, id_num, cls, yr, [x.strip() for x in courses])
-        print(msg)
-        student_mgmt()
-    elif c == '2':
-        students = list(onto.Student.instances())
-        
-        if not students:
-            print("\nNo students found in the department.")
-        else:
-            print("\nList of Registered Students")
-            for s in students:
-                course_names = [course.has_name for course in s.enrolled_in]
+            # 5. Validate Courses
+            while True:
+                courses_raw = input("Courses (comma separated): ").split(",")
+                processed_courses = [c.strip().upper() for c in courses_raw if c.strip()]
                 
-                print(f"ID: {s.has_id}")
-                print(f" - Name: {s.has_name}")
-                print(f" - Class: {s.has_class_code} (Year {s.has_year})")
-                print(f" - Enrolled In: {', '.join(course_names) if course_names else 'None'}")
-                print("-" * 20)
-        
-        student_mgmt()
-    elif c == '0':
-        management_menu()
-    else:
-        print("Invalid choice. Choose option 1 or 2")
-        student_mgmt()
+                if not processed_courses:
+                    print("Error: Please enter at least one course.")
+                    continue
+                
+                existing_courses = [course.has_name for course in onto.Course.instances()]
+                
+                # Identify which entered courses are missing from the ontology
+                missing_courses = [c for c in processed_courses if c not in existing_courses]
+                
+                if missing_courses:
+                    print(f"Error: The following courses do not exist: {', '.join(missing_courses)}")
+                    print("Note: Courses must be added via 'Course Management' first.")
+                    valid_format = False
+                else:
+                    valid_format = True
+
+                if valid_format:
+                    courses = processed_courses
+                    break
+            _ , msg = add_student(name, id_num, cls, yr, [x.strip() for x in courses])
+            print(msg)
+            student_mgmt()
+        elif c == '2':
+            students = list(onto.Student.instances())
+            
+            if not students:
+                print("\nNo students found in the department.")
+            else:
+                print("\nList of Registered Students")
+                for s in students:
+                    course_names = [course.has_name for course in s.enrolled_in]
+                    
+                    print(f"ID: {s.has_id}")
+                    print(f" - Name: {s.has_name}")
+                    print(f" - Class: {s.has_class_code} (Year {s.has_year})")
+                    print(f" - Enrolled In: {', '.join(course_names) if course_names else 'None'}")
+                    print("-" * 20)
+        elif c == '0':
+            return
+        else:
+            print("Invalid option. Please try again.")
 
 def course_mgmt():
-    print("\n[Course Management]\n")
-    print("1. Add Course\n2. Course List\n0. Back\n")
-    c = input("Choice: ")
-    if c == '1':
-        # 1. Validate Name (must not be empty)
-        while True:
-            name = input("Course Name: ").strip()
-            if not name:
-                print("Error: Name cannot be empty.")
-            elif len(name) <= 1:
-                print("Error: Name is too short (minimum 2 characters).")
-            elif len(name) > 10:
-                print("Error: Name is too long (maximum 10 characters).")
+    while True:
+        print("\n[Course Management]\n")
+        print("1. Add Course\n2. Course List\n0. Back\n")
+        c = input("Choice: ")
+        if c == '1':
+            # 1. Validate Name (must not be empty)
+            while True:
+                name = input("Course Name: ").strip()
+                if not name:
+                    print("Error: Name cannot be empty.")
+                elif len(name) <= 1:
+                    print("Error: Name is too short (minimum 2 characters).")
+                elif len(name) > 10:
+                    print("Error: Name is too long (maximum 10 characters).")
+                else:
+                    break
+
+            # 2. Validate Year
+            while True:
+                try:
+                    year = int(input("Year: "))
+                    if year < 4 or year > 0:
+                        break
+                    print("Error: Year must be 1, 2 or 3.")
+                except ValueError:
+                    print("Error: Year must be a valid number.")
+
+            # 3. Validate Semester (1 or 2)
+            while True:
+                try:
+                    semester = int(input("Semester (1 or 2): "))
+                    if semester in [1, 2]:
+                        break
+                    print("Error: Semester must be 1 or 2.")
+                except ValueError:
+                    print("Error: Semester must be a valid number.")
+
+            # 4. Validate Student Course Number
+            while True:
+                try:
+                    capacity = int(input("Number of Students (e.g., 10-300): "))
+                    if 10 <= capacity <= 500:
+                        break
+                    print("Error: Number of Students must be between 10 and 500.")
+                except ValueError:
+                    print("Error: Number of Students must be a valid number.")
+
+            _ , msg = add_course(name, year, semester, capacity)
+            print(msg)
+        elif c == '2':
+            courses = list(onto.Course.instances())
+            if not courses:
+                print("\nNo courses registered in the system.")
             else:
-                break
-
-        # 2. Validate Year
-        while True:
-            try:
-                year = int(input("Year: "))
-                if year < 4 or year > 0:
-                    break
-                print("Error: Year must be 1, 2 or 3.")
-            except ValueError:
-                print("Error: Year must be a valid number.")
-
-        # 3. Validate Semester (1 or 2)
-        while True:
-            try:
-                semester = int(input("Semester (1 or 2): "))
-                if semester in [1, 2]:
-                    break
-                print("Error: Semester must be 1 or 2.")
-            except ValueError:
-                print("Error: Semester must be a valid number.")
-
-        # 4. Validate Student Course Number
-        while True:
-            try:
-                capacity = int(input("Number of Students (e.g., 10-300): "))
-                if 10 <= capacity <= 500:
-                    break
-                print("Error: Number of Students must be between 10 and 500.")
-            except ValueError:
-                print("Error: Number of Students must be a valid number.")
-
-        _ , msg = add_course(name, year, semester, capacity)
-        print(msg)
-        course_mgmt()
-    elif c == '2':
-        courses = list(onto.Course.instances())
-        if not courses:
-            print("\nNo courses registered in the system.")
+                print("\n--- List of Courses ---")
+                for crs in courses:
+                    print(f"- {crs.has_name} (Year: {crs.has_year}, Sem: {crs.has_semester}, Cap: {crs.required_capacity})")
+        elif c == '0':
+            return
         else:
-            print("\n--- List of Courses ---")
-            for crs in courses:
-                print(f"- {crs.has_name} (Year: {crs.has_year}, Sem: {crs.has_semester}, Cap: {crs.required_capacity})")
-        course_mgmt()
-    elif c == '0':
-        management_menu()
-    else:
-        print("Invalid choice. Choose option 1, 2 or 0 to Back")
-        course_mgmt()
+            print("Invalid option. Please try again.")
 
 def class_mgmt():
-    print("\n[Class Management]\n")
-    print("1. Add Class\n2. Class List\n0. Back\n")
-    c = input("Choice: ")
-    
-    if c == '1':
-        # 1. Validate Name
-        while True:
-            name = input("Class Name: ").strip().upper()
-            if name: break
-            print("Error: Class name cannot be empty.")
-
-        # 2. Validate Year
-        while True:
-            try:
-                year = int(input("Year (1-3): "))
-                if 1 <= year <= 5: break
-                print("Error: Year must be between 1 and 5.")
-            except ValueError:
-                print("Error: Year must be a number.")
-
-        _ , msg = add_academic_class(name, year)
-        print(msg)
-        class_mgmt()
-
-    elif c == '2':
-        classes = list(onto.AcademicClass.instances())
-        if not classes:
-            print("\nNo academic classes registered.")
-        else:
-            print("\n--- List of Academic Classes ---")
-            for ac in classes:
-                # Find students belonging to this class using inverse search
-                # FOL: {s | Student(s) ^ belongs_to_class(s, ac)}
-                students = onto.search(type=Student, belongs_to_class=ac)
-                student_names = [s.has_name for s in students]
-                
-                print(f"Class: {ac.has_name} | Year: {ac.has_year}")
-                print(f" - Registered Students: {', '.join(student_names) if student_names else 'None'}")
-                print("-" * 30)
+    while True:
+        print("\n[Class Management]\n")
+        print("1. Add Class\n2. Class List\n0. Back\n")
+        c = input("Choice: ")
         
-        class_mgmt()
-    elif c == '0':
-        management_menu()
+        if c == '1':
+            # 1. Validate Name
+            while True:
+                name = input("Class Name: ").strip().upper()
+                if name: break
+                print("Error: Class name cannot be empty.")
+
+            # 2. Validate Year
+            while True:
+                try:
+                    year = int(input("Year (1-3): "))
+                    if 1 <= year <= 5: break
+                    print("Error: Year must be between 1 and 5.")
+                except ValueError:
+                    print("Error: Year must be a number.")
+
+            _ , msg = add_academic_class(name, year)
+            print(msg)
+        elif c == '2':
+            classes = list(onto.AcademicClass.instances())
+            if not classes:
+                print("\nNo academic classes registered.")
+            else:
+                print("\n--- List of Academic Classes ---")
+                for ac in classes:
+                    # Find students belonging to this class using inverse search
+                    # FOL: {s | Student(s) ^ belongs_to_class(s, ac)}
+                    students = onto.search(type=Student, belongs_to_class=ac)
+                    student_names = [s.has_name for s in students]
+                    
+                    print(f"Class: {ac.has_name} | Year: {ac.has_year}")
+                    print(f" - Registered Students: {', '.join(student_names) if student_names else 'None'}")
+                    print("-" * 30)
+        elif c == '0':
+            return
+        else:
+            print("Invalid option. Please try again.")
 
 def queries_menu():
     
@@ -444,7 +437,12 @@ def booking_menu():
 
         if choice == '1':
             # 1. Course/Capacity Logic
-            is_course = input("Is this for a Course? (y/n): ").lower() == 'y'
+            while True:
+                is_course = input("Is this for a Course? (y/n): ").lower().strip()
+                if is_course in ['y', 'n']:
+                    is_course = (is_course == 'y')
+                    break
+
             if is_course:
                 c_name = input("Enter Course Code: ").upper()
                 course_obj = onto.search_one(type=Course, has_name=c_name)
@@ -453,7 +451,14 @@ def booking_menu():
                 cap_needed = course_obj.required_capacity
                 print(f"Automatic Capacity required: {cap_needed}")
             else:
-                cap_needed = int(input("Required Capacity: "))
+                while True:
+                    try:
+                        cap_needed = int(input("Required Capacity: "))
+                        if 1 <= cap_needed <= 500:
+                            break
+                        print("Error: Capacity must be between 1 and 500.")
+                    except ValueError:
+                        print("Error: Capacity must be a valid number.")
                 course_obj = None
 
             # 2. Validate starting date
@@ -493,6 +498,9 @@ def booking_menu():
                     start_hour = int(input("Start Hour (9-19): "))
                     if start_hour > 8 and start_hour < 20 and start_hour != 13:
                         break
+                    if start_hour == 13:
+                        print("13:00-14:00 is reserved for Maintenance/Lunch.")
+                        continue
                     print("Error: Booking start hour invalid.")
                 except ValueError:
                     print("Error: Please enter a valid hour number (9-19)")
@@ -519,19 +527,39 @@ def booking_menu():
             slots = agent.get_available_slots_in_interval(cap_needed, start_date, end_date, start_hour, num_hours, needs_proj)
 
             if not slots:
-                print("\n[Agent 1]: No available slots found in that interval.")
+                print("\n[Room Management]: No available slots found in that interval and period of time.")
             else:
-                print(f"\n[Agent 1] Found {len(slots)} available slots:")
-                for i, s in enumerate(slots):
-                    print(f"{i+1}. Date: {s['date']} | Room: {s['room'].has_name} (Cap: {s['room'].has_capacity})")
+                if not slots[0]["suggestion"]:
+                    print(f"\n[Room Management] Found {len(slots)} available slots:")
+                    sugestion = False
+                else:
+                    print(f"\n[Room Management] No available slots found in that interval and period of time.\nFound {len(slots)} suggested slots:")
+                    sugestion = True
+                print("-" * 50)
+                if sugestion:
+                    samples = 10
+                    if len(slots) > 10:
+                        slots = random.sample(slots, samples)
+                for i, s in enumerate(slots, start=1):
+                    print(f" {i}. {s['date']} | {s['duration'][0]} - {s['duration'][1]} | Room: {s['room'].has_name} (Cap: {s['room'].has_capacity})")
+                print("-" * 50)
                 
-                sel = input("\nSelect one slot to book (number) or 'c' to cancel: ")
-                if sel.isdigit() and int(sel) <= len(slots):
-                    chosen = slots[int(sel)-1]
-                    agent.create_booking(prof, chosen['room'], chosen['start'], chosen['end'],
-                                        "Course" if is_course else "Meeting", course_obj)
-                    save()
-                    print(f"Success: {chosen['room'].has_name} booked for {chosen['date']}.")
+                while True:
+                    sel = input(f"Select a slot (1-{len(slots)}) or '0' to cancel: ")
+                    if sel == '0':
+                        print("Booking cancelled.")
+                        break
+                    
+                    if sel.isdigit():
+                        idx = int(sel)
+                        if 1 <= idx <= len(slots):
+                            chosen = slots[idx-1]
+                            agent.create_booking(prof, chosen['room'], chosen['start'], chosen['end'],
+                                                "Course" if is_course else "Meeting", course_obj)
+                            save()
+                            print(f"\Success: {chosen['room'].has_name} booked for {chosen['date']} at {chosen['duration'][0]} - {chosen['duration'][1]}.")
+                            break
+                    print(f"Invalid choice. Pick a number between 1 and {len(slots)}.")
 
         elif choice == '2':
             room_name = input("Enter Room Name to check: ")
@@ -549,38 +577,31 @@ def booking_menu():
             if not room:
                 print(f"Error: Room '{room_name}' does not exist.")
             else:
-                # Fetch and sort bookings by start time
+                # Fetch and sort bookings
                 bookings = [b for b in onto.search(type=RoomBooking, booked_in_room=room) if b.has_start_time.date() == target_date]
                 sorted_bookings = sorted(bookings, key=lambda x: x.has_start_time)
 
-                print(f"\n" + "="*40)
+                print(f"\n" + "="*50)
                 print(f"DEI SCHEDULE [{target_date}]: {room.has_name}")
                 print(f"Capacity: {room.has_capacity} | Projector: {'Yes' if onto.Projector in room.has_equipment else 'No'}")
-                print("="*40)
+                print("="*50)
 
                 if not sorted_bookings:
                     print("No bookings found for this room.")
                 else:
-                    current_date = None
-                    for b in sorted_bookings:
-                        # Print a date header whenever the day changes
-                        booking_date = b.has_start_time.strftime('%Y-%m-%d')
-                        if booking_date != current_date:
-                            print(f"\n--- {booking_date} ---")
-                            current_date = booking_date
-                        
-                        # Formatting the hourly block display
+                    # 2. Display with Numbers (1, 2, 3...)
+                    for idx, b in enumerate(sorted_bookings, start=1):
                         start = b.has_start_time.strftime('%H:%M')
                         end = b.has_end_time.strftime('%H:%M')
-                        print(f"  {start} - {end} | {b.has_name} (by {b.booked_by.has_name})")
+                        print(f" {idx}. {start} - {end} | {b.has_name} (by {b.booked_by.has_name})")
 
-                print("="*40)
+                    print("-" * 50)
+                print("="*50)
 
-            # ======================================================================
-            # TODO Change logic: this service must only show what changed.
-            # Agent 2 will activate the emergency relocation service automatically
-            # ======================================================================
-
+        # ======================================================================
+        # TODO Change logic: this service must only show what changed.
+        # Agent 2 will activate the emergency relocation service automatically
+        # ======================================================================
         elif choice == '3':
             print("\n--- Emergency Relocation Service ---")
             # List bookings made by this professor today or in the future

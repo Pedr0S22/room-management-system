@@ -266,6 +266,96 @@
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty>
+            <rdf:Description>
+              <owl:inverseOf rdf:resource="#BookedInRoom"/>
+            </rdf:Description>
+          </owl:onProperty>
+          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty>
+            <rdf:Description>
+              <owl:inverseOf rdf:resource="#BookedInRoom"/>
+            </rdf:Description>
+          </owl:onProperty>
+          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty>
+            <rdf:Description>
+              <owl:inverseOf rdf:resource="#BookedInRoom"/>
+            </rdf:Description>
+          </owl:onProperty>
+          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty>
+            <rdf:Description>
+              <owl:inverseOf rdf:resource="#BookedInRoom"/>
+            </rdf:Description>
+          </owl:onProperty>
+          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty>
+            <rdf:Description>
+              <owl:inverseOf rdf:resource="#BookedInRoom"/>
+            </rdf:Description>
+          </owl:onProperty>
+          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty>
+            <rdf:Description>
+              <owl:inverseOf rdf:resource="#BookedInRoom"/>
+            </rdf:Description>
+          </owl:onProperty>
+          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#UnsuitableRoomBooking">
@@ -305,6 +395,156 @@
 
 <owl:Class rdf:about="#RoomNeedsAttention">
   <rdfs:subClassOf rdf:resource="#Room"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#AccumulatedUsage"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#AccumulatedUsage"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#AccumulatedUsage"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#AccumulatedUsage"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#AccumulatedUsage"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#AccumulatedUsage"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
@@ -441,6 +681,120 @@
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty>
+                <rdf:Description>
+                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
+                </rdf:Description>
+              </owl:onProperty>
+              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty>
+                <rdf:Description>
+                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
+                </rdf:Description>
+              </owl:onProperty>
+              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty>
+                <rdf:Description>
+                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
+                </rdf:Description>
+              </owl:onProperty>
+              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty>
+                <rdf:Description>
+                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
+                </rdf:Description>
+              </owl:onProperty>
+              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty>
+                <rdf:Description>
+                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
+                </rdf:Description>
+              </owl:onProperty>
+              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty>
+                <rdf:Description>
+                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
+                </rdf:Description>
+              </owl:onProperty>
+              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#OverloadedTeacher">
@@ -461,6 +815,156 @@
 
 <owl:Class rdf:about="#LargeExamRoom">
   <rdfs:subClassOf rdf:resource="#Room"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#HasCapacity"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#HasCapacity"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#HasCapacity"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#HasCapacity"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#HasCapacity"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Room"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#HasCapacity"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
@@ -643,6 +1147,7 @@
   <rdf:type rdf:resource="#Room"/>
   <HasEquipment rdf:resource="#Projector"/>
   <rdf:type rdf:resource="#LargeExamRoom"/>
+  <rdf:type rdf:resource="#OverBookedRoom"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B.1</HasName>
   <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</HasCapacity>
   <AccumulatedUsage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</AccumulatedUsage>
@@ -652,6 +1157,7 @@
   <rdf:type rdf:resource="#Room"/>
   <HasEquipment rdf:resource="#Projector"/>
   <rdf:type rdf:resource="#LargeExamRoom"/>
+  <rdf:type rdf:resource="#OverBookedRoom"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amfiteatro_A</HasName>
   <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</HasCapacity>
   <AccumulatedUsage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</AccumulatedUsage>
@@ -659,6 +1165,7 @@
 
 <owl:NamedIndividual rdf:about="#Lab_1">
   <rdf:type rdf:resource="#Room"/>
+  <rdf:type rdf:resource="#OverBookedRoom"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lab_1</HasName>
   <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</HasCapacity>
   <AccumulatedUsage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</AccumulatedUsage>
@@ -728,6 +1235,83 @@
 
 <owl:NamedIndividual rdf:about="#lecture1">
   <rdf:type rdf:resource="#Lecture"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767276000_B.1">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#B.1"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <ForActivity rdf:resource="#lecture2"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T14:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T16:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course: IA</HasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lecture2">
+  <rdf:type rdf:resource="#Lecture"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767268800_Amfiteatro_A">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#Amfiteatro_A"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <ForActivity rdf:resource="#lecture3"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T12:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T13:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course: CRP</HasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lecture3">
+  <rdf:type rdf:resource="#Lecture"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767348000_Amfiteatro_A">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#Amfiteatro_A"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <ForActivity rdf:resource="#lecture4"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T10:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T11:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course: CRP</HasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lecture4">
+  <rdf:type rdf:resource="#Lecture"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767258000_Lab_1">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#Lab_1"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T09:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T10:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767258000_G.5.1">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#G.5.1"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T09:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T12:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767258000_B.1">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#B.1"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T09:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T12:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TEST1">
+  <rdf:type rdf:resource="#Room"/>
+  <HasEquipment rdf:resource="#Projector"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEST1</HasName>
+  <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</HasCapacity>
+  <AccumulatedUsage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</AccumulatedUsage>
 </owl:NamedIndividual>
 
 

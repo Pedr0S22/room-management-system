@@ -48,37 +48,60 @@ class BookingAgent:
         """Returns a list of (date, room) tuples that are available."""
         available_slots = []
         delta = (end_date - start_date).days
+
+        def check_slot(target_day, h_start, duration):
+            dt_start = datetime.combine(target_day, time.min).replace(hour=h_start)
+            dt_end = dt_start + timedelta(hours=duration)
+            
+            # This calls your Rule 3: if start < 14 and end > 13, it returns False
+            is_valid, _ = self.validate_time_slots(dt_start, dt_end)
+            if not is_valid:
+                return None
+                
+            rooms = self.get_available_rooms(capacity, dt_start, dt_end, needs_proj)
+            if rooms:
+                return [{
+                    "date": target_day,
+                    "duration": (dt_start.strftime('%H:%M'), dt_end.strftime('%H:%M')),
+                    "room": r,
+                    "start": dt_start,
+                    "end": dt_end,
+                    "suggestion": False
+                } for r in rooms]
+            return None
         
         # Iterate through every day in the requested range
+        # 1. Primary Search
         for i in range(delta + 1):
             day = start_date + timedelta(days=i)
+            if day.weekday() >= 5: continue
             
-            # Skip Weekends
-            if day.weekday() >= 5:
-                continue
-                
-            check_start = datetime.combine(day, time.min).replace(hour=start_hour)
-            check_end = check_start + timedelta(hours=num_hours)
-            
-            # Validation for DEI Operating Hours and Lunch
-            is_valid, _ = self.validate_time_slots(check_start, check_end)
-            if not is_valid:
-                continue
+            found = check_slot(day, start_hour, num_hours)
+            if found:
+                available_slots.extend(found)
 
-            # Find all rooms for this specific day/time
-            # We use the existing logic to find suitable rooms
-            rooms = self.get_available_rooms(capacity, check_start, check_end, needs_proj)
-            
-            for r in rooms:
-                available_slots.append({
-                    "date": day,
-                    "room": r,
-                    "start": check_start,
-                    "end": check_end
-                })
+        # 2. Hypothesis Search: Only triggers if the specific hour was fully booked
+        if not available_slots:
+            print("\n[Notice]: Requested time slot is full or invalid. Finding alternative hypotheses...")
+            for i in range(delta + 1):
+                day = start_date + timedelta(days=i)
+                if day.weekday() >= 5: continue
                 
-        # Sort slots: earliest date first, then smallest room capacity
-        available_slots.sort(key=lambda x: (x['date'], x['room'].has_capacity))
+                # Range 9 to 19 (Last possible start is 19:00 for a 1h booking)
+                for alt_hour in range(9, 20):
+                    # Optimization: Skip the 13:00 start immediately
+                    # And skip the original start_hour we already checked
+                    if alt_hour == 13 or alt_hour == start_hour:
+                        continue
+                    
+                    found_alt = check_slot(day, alt_hour, num_hours)
+                    if found_alt:
+                        for item in found_alt:
+                            item["suggestion"] = True
+                        available_slots.extend(found_alt)
+
+        # Sort: Date -> Time -> Smallest Room Capacity
+        available_slots.sort(key=lambda x: (x['date'], x["start"], x['room'].has_capacity))
         return available_slots
 
     def _is_room_busy(self, room, start_t, end_t):
