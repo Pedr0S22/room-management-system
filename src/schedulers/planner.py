@@ -10,11 +10,14 @@ def run_scheduler(mode, algo_choice):
     print(f"\n[Planning {mode.capitalize()}]\n")
     
     if mode == "lectures":
-        domain_file = str(BASE_PATH / "domain_lectures.pddl")
-        problem_file = str(BASE_PATH / "problem_lectures.pddl")
+        domain_file = str(BASE_PATH / mode / "domain_lectures.pddl")
+        problem_file = str(BASE_PATH / mode / "problem_lectures.pddl")
+    elif mode == "exams":
+        domain_file = str(BASE_PATH / mode / "domain_exams.pddl")
+        problem_file = str(BASE_PATH / mode / "problem_exams.pddl")
     else:
-        domain_file = str(BASE_PATH / "domain_exams.pddl")
-        problem_file = str(BASE_PATH / "problem_exams.pddl")
+        print(f"Interface Error: {mode} does not exist.")
+        return
     
     # Check if files exist
     if not os.path.exists(domain_file) or not os.path.exists(problem_file):
