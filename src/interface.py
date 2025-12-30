@@ -2,6 +2,7 @@ import sys
 import random
 from agents.agent_room_booking import BookingAgent
 from agents.agent_room_maintenance import MaintenanceAgent
+from schedulers import planner
 from ontology.dei_department import *
 from datetime import datetime, timedelta, date, time
 
@@ -922,12 +923,37 @@ def maintenance_menu():
         
 def planning_menu():
     """Triggers the PDDL Automated Planners."""
-    print("\n [Semester Planning]\n")
-    print("1. Generate Weekly Class Template")
-    print("2. Generate Exam Epoch Schedule")
-    print("3. Back to Main Menu")
-    # This will call the unified-planning solver as seen in planner.py
-    input("\n[Placeholder] Press Enter to return...")
-
+    while True:
+        print("\n [Semester Planning (PDDL)]\n")
+        print("1. Generate Weekly Class Template (Semester 2)")
+        print("2. Generate Exam Epoch Schedule (Semester 1)")
+        print("0. Back to Main Menu")
+        
+        choice = input("\nSelect: ")
+        
+        if choice == '1':
+            print("\nSelect Algorithm:")
+            print("1. Fast/Heuristic (Recommended)")
+            print("2. Best Possible (Optimal - Slower)")
+            algo = input("Choice: ")
+            if algo in ['1', '2']:
+                planner.run_scheduler("lectures", algo)
+            else:
+                print("Invalid algorithm choice.")
+                
+        elif choice == '2':
+            print("\nSelect Algorithm:")
+            print("1. Fast/Heuristic (Recommended)")
+            print("2. Best Possible (Optimal - Slower)")
+            algo = input("Choice: ")
+            if algo in ['1', '2']:
+                planner.run_scheduler("exams", algo)
+            else:
+                print("Invalid algorithm choice.")
+                
+        elif choice == '0':
+            return
+        else:
+            print("Invalid option.")
 if __name__ == "__main__":
     main_menu()
