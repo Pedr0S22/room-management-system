@@ -4,7 +4,7 @@ from agents.agent_room_booking import BookingAgent
 from agents.agent_room_maintenance import MaintenanceAgent
 from schedulers import planner
 from ontology.dei_department import *
-from datetime import datetime, timedelta, date, time
+from datetime import datetime, date, time
 
 # Initialization of Agent 1 (room booking manager)
 agent = BookingAgent(onto)
@@ -924,17 +924,17 @@ def maintenance_menu():
 def planning_menu():
     """Triggers the PDDL Automated Planners."""
     while True:
-        print("\n [Semester Planning (PDDL)]\n")
-        print("1. Generate Weekly Class Template (Semester 2)")
-        print("2. Generate Exam Epoch Schedule (Semester 1)")
+        print("\n [Semester Planning]\n")
+        print("1. Generate Weekly Course Lectures Schedule (S2)")
+        print("2. Generate Exam Epoch Schedule (S1)")
         print("0. Back to Main Menu")
         
         choice = input("\nSelect: ")
         
         if choice == '1':
             print("\nSelect Algorithm:")
-            print("1. Fast/Heuristic (Recommended)")
-            print("2. Best Possible (Optimal - Slower)")
+            print("1. Fast/Heuristic")
+            print("2. Best Possible")
             algo = input("Choice: ")
             if algo in ['1', '2']:
                 planner.run_scheduler("lectures", algo)
@@ -943,8 +943,8 @@ def planning_menu():
                 
         elif choice == '2':
             print("\nSelect Algorithm:")
-            print("1. Fast/Heuristic (Recommended)")
-            print("2. Best Possible (Optimal - Slower)")
+            print("1. Fast/Heuristic")
+            print("2. Best Possible")
             algo = input("Choice: ")
             if algo in ['1', '2']:
                 planner.run_scheduler("exams", algo)
