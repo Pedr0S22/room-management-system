@@ -284,66 +284,6 @@
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Restriction>
-          <owl:onProperty>
-            <rdf:Description>
-              <owl:inverseOf rdf:resource="#BookedInRoom"/>
-            </rdf:Description>
-          </owl:onProperty>
-          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Restriction>
-          <owl:onProperty>
-            <rdf:Description>
-              <owl:inverseOf rdf:resource="#BookedInRoom"/>
-            </rdf:Description>
-          </owl:onProperty>
-          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Restriction>
-          <owl:onProperty>
-            <rdf:Description>
-              <owl:inverseOf rdf:resource="#BookedInRoom"/>
-            </rdf:Description>
-          </owl:onProperty>
-          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Restriction>
-          <owl:onProperty>
-            <rdf:Description>
-              <owl:inverseOf rdf:resource="#BookedInRoom"/>
-            </rdf:Description>
-          </owl:onProperty>
-          <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#UnsuitableProjectorRoomBooking">
@@ -383,82 +323,6 @@
 
 <owl:Class rdf:about="#AvailableRoom">
   <rdfs:subClassOf rdf:resource="#Room"/>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Class>
-          <owl:complementOf>
-            <owl:Restriction>
-              <owl:onProperty>
-                <rdf:Description>
-                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
-                </rdf:Description>
-              </owl:onProperty>
-              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-            </owl:Restriction>
-          </owl:complementOf>
-        </owl:Class>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Class>
-          <owl:complementOf>
-            <owl:Restriction>
-              <owl:onProperty>
-                <rdf:Description>
-                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
-                </rdf:Description>
-              </owl:onProperty>
-              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-            </owl:Restriction>
-          </owl:complementOf>
-        </owl:Class>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Class>
-          <owl:complementOf>
-            <owl:Restriction>
-              <owl:onProperty>
-                <rdf:Description>
-                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
-                </rdf:Description>
-              </owl:onProperty>
-              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-            </owl:Restriction>
-          </owl:complementOf>
-        </owl:Class>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Room"/>
-        <owl:Class>
-          <owl:complementOf>
-            <owl:Restriction>
-              <owl:onProperty>
-                <rdf:Description>
-                  <owl:inverseOf rdf:resource="#BookedInRoom"/>
-                </rdf:Description>
-              </owl:onProperty>
-              <owl:someValuesFrom rdf:resource="#RoomBooking"/>
-            </owl:Restriction>
-          </owl:complementOf>
-        </owl:Class>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
@@ -614,6 +478,30 @@
   <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">167</RequiredCapacity>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#SGD_Y2_S2">
+  <rdf:type rdf:resource="#Course"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SGD</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasYear>
+  <HasSemester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasSemester>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#PGI_Y2_S2">
+  <rdf:type rdf:resource="#Course"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PGI</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasYear>
+  <HasSemester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasSemester>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#FPS_Y2_S2">
+  <rdf:type rdf:resource="#Course"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FPS</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasYear>
+  <HasSemester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasSemester>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</RequiredCapacity>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#SD_Y3_S1">
   <rdf:type rdf:resource="#Course"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SD</HasName>
@@ -638,6 +526,22 @@
   <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</RequiredCapacity>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#AMII_Y1_S2">
+  <rdf:type rdf:resource="#Course"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AMII</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
+  <HasSemester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasSemester>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#EST_Y1_S2">
+  <rdf:type rdf:resource="#Course"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EST</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
+  <HasSemester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasSemester>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</RequiredCapacity>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#IPRP_Y1_S1">
   <rdf:type rdf:resource="#Course"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IPRP</HasName>
@@ -658,6 +562,12 @@
   <rdf:type rdf:resource="#AcademicClass"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEI</HasName>
   <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</HasYear>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Class_LEI_1">
+  <rdf:type rdf:resource="#AcademicClass"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEI</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Class_LIACD_3">
@@ -720,6 +630,7 @@
 <owl:NamedIndividual rdf:about="#B.2">
   <rdf:type rdf:resource="#Room"/>
   <HasEquipment rdf:resource="#Projector_B.2"/>
+  <rdf:type rdf:resource="#OverBookedRoom"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B.2</HasName>
   <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">320</HasCapacity>
 </owl:NamedIndividual>
@@ -792,7 +703,6 @@
 <owl:NamedIndividual rdf:about="#E.4.3">
   <rdf:type rdf:resource="#Room"/>
   <HasEquipment rdf:resource="#Projector_E.4.3"/>
-  <rdf:type rdf:resource="#OverBookedRoom"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E.4.3</HasName>
   <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</HasCapacity>
 </owl:NamedIndividual>
@@ -806,6 +716,7 @@
 <owl:NamedIndividual rdf:about="#D.1.1">
   <rdf:type rdf:resource="#Room"/>
   <HasEquipment rdf:resource="#Projector_D.1.1"/>
+  <rdf:type rdf:resource="#OverBookedRoom"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D.1.1</HasName>
   <HasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</HasCapacity>
 </owl:NamedIndividual>
@@ -881,6 +792,29 @@
   <Teaches rdf:resource="#EA_Y3_S2"/>
   <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elena Rossi</HasName>
   <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</HasId>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T_108">
+  <rdf:type rdf:resource="#Teacher"/>
+  <Teaches rdf:resource="#SGD_Y2_S2"/>
+  <Teaches rdf:resource="#PGI_Y2_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tiago Baptista</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</HasId>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T_109">
+  <rdf:type rdf:resource="#Teacher"/>
+  <Teaches rdf:resource="#FPS_Y2_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Joana Dias</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">109</HasId>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#T_110">
+  <rdf:type rdf:resource="#Teacher"/>
+  <Teaches rdf:resource="#AMII_Y1_S2"/>
+  <Teaches rdf:resource="#EST_Y1_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carlos Santos</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</HasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#S_2021001">
@@ -961,88 +895,102 @@
   <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#lecture1">
-  <rdf:type rdf:resource="#Lecture"/>
-  <RequiresEquipment rdf:resource="#Projector_A.5.1"/>
-  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</RequiredCapacity>
+<owl:NamedIndividual rdf:about="#S_2023001">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LEI_1"/>
+  <EnrolledIn rdf:resource="#AMII_Y1_S2"/>
+  <EnrolledIn rdf:resource="#EST_Y1_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Andreia Nunes</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023001</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEI</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Booking_1767265200_A.5.1">
-  <rdf:type rdf:resource="#RoomBooking"/>
-  <BookedInRoom rdf:resource="#A.5.1"/>
-  <BookedBy rdf:resource="#T_102"/>
-  <ForActivity rdf:resource="#meeting1"/>
-  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T11:00:00.000</HasStartTime>
-  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T12:00:00.000</HasEndTime>
-  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
-  <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</IsRelocated>
+<owl:NamedIndividual rdf:about="#S_2023002">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LEI_1"/>
+  <EnrolledIn rdf:resource="#AMII_Y1_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bernardo Lima</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023002</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEI</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#meeting1">
-  <rdf:type rdf:resource="#Meeting"/>
-  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</RequiredCapacity>
+<owl:NamedIndividual rdf:about="#S_2023003">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LEI_1"/>
+  <EnrolledIn rdf:resource="#EST_Y1_S2"/>
+  <EnrolledIn rdf:resource="#AMII_Y1_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carlos Andrade</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023003</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEI</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Booking_1767268800_A.5.1">
-  <rdf:type rdf:resource="#RoomBooking"/>
-  <BookedBy rdf:resource="#T_103"/>
-  <ForActivity rdf:resource="#meeting2"/>
-  <rdf:type rdf:resource="#UnsuitableProjectorRoomBooking"/>
-  <BookedInRoom rdf:resource="#E.4.3"/>
-  <rdf:type rdf:resource="#RelocatedBooking"/>
-  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T12:00:00.000</HasStartTime>
-  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T13:00:00.000</HasEndTime>
-  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
-  <OriginalStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T12:00:00.000</OriginalStartTime>
-  <OriginalEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T13:00:00.000</OriginalEndTime>
-  <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</IsRelocated>
+<owl:NamedIndividual rdf:about="#S_2022005">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LIACD_2"/>
+  <EnrolledIn rdf:resource="#SGD_Y2_S2"/>
+  <EnrolledIn rdf:resource="#PGI_Y2_S2"/>
+  <EnrolledIn rdf:resource="#FPS_Y2_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Catarina Oliveira</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2022005</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIACD</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#meeting2">
-  <rdf:type rdf:resource="#Meeting"/>
-  <RequiresEquipment rdf:resource="#Projector_A.5.1"/>
-  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</RequiredCapacity>
+<owl:NamedIndividual rdf:about="#S_2022006">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LIACD_2"/>
+  <EnrolledIn rdf:resource="#SGD_Y2_S2"/>
+  <EnrolledIn rdf:resource="#FPS_Y2_S2"/>
+  <EnrolledIn rdf:resource="#AED_Y2_S1"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Daniel Sousa</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2022006</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIACD</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#maintenanceactivity1">
-  <rdf:type rdf:resource="#MaintenanceActivity"/>
+<owl:NamedIndividual rdf:about="#S_2023005">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LDM_1"/>
+  <EnrolledIn rdf:resource="#IPRP_Y1_S1"/>
+  <EnrolledIn rdf:resource="#AMII_Y1_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eduardo Martins</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023005</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LDM</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Booking_1767344400_G.5.1">
-  <rdf:type rdf:resource="#RoomBooking"/>
-  <BookedInRoom rdf:resource="#G.5.1"/>
-  <BookedBy rdf:resource="#T_102"/>
-  <ForActivity rdf:resource="#lecture2"/>
-  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T09:00:00.000</HasStartTime>
-  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T11:00:00.000</HasEndTime>
-  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course: CRP</HasName>
-  <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</IsRelocated>
+<owl:NamedIndividual rdf:about="#S_2023006">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LDM_1"/>
+  <EnrolledIn rdf:resource="#IPRP_Y1_S1"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filipa Rocha</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023006</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LDM</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#lecture2">
-  <rdf:type rdf:resource="#Lecture"/>
-  <RequiresEquipment rdf:resource="#Projector_G.5.1"/>
-  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</RequiredCapacity>
+<owl:NamedIndividual rdf:about="#S_2021009">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LDM_3"/>
+  <EnrolledIn rdf:resource="#CM_Y3_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Goncalo Reis</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021009</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LDM</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</HasYear>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Booking_1767258000_A.5.1">
-  <rdf:type rdf:resource="#RoomBooking"/>
-  <BookedInRoom rdf:resource="#A.5.1"/>
-  <BookedBy rdf:resource="#T_101"/>
-  <ForActivity rdf:resource="#meeting3"/>
-  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T09:00:00.000</HasStartTime>
-  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T10:00:00.000</HasEndTime>
-  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
-  <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</IsRelocated>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#meeting3">
-  <rdf:type rdf:resource="#Meeting"/>
-  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</RequiredCapacity>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#maintenanceactivity2">
-  <rdf:type rdf:resource="#MaintenanceActivity"/>
+<owl:NamedIndividual rdf:about="#S_2021010">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LDM_3"/>
+  <EnrolledIn rdf:resource="#CM_Y3_S2"/>
+  <EnrolledIn rdf:resource="#EA_Y3_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Helena Viana</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021010</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LDM</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</HasYear>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#T.1">
@@ -1058,25 +1006,96 @@
   <IsBroken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</IsBroken>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#maintenanceactivity3">
-  <rdf:type rdf:resource="#MaintenanceActivity"/>
+<owl:NamedIndividual rdf:about="#T_999">
+  <rdf:type rdf:resource="#Teacher"/>
+  <Teaches rdf:resource="#CRP_Y2_S1"/>
+  <Teaches rdf:resource="#AMII_Y1_S2"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEACHER</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">999</HasId>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Booking_1767603600_G.5.1">
+<owl:NamedIndividual rdf:about="#S_2025999">
+  <rdf:type rdf:resource="#Student"/>
+  <BelongsToClass rdf:resource="#Class_LIACD_2"/>
+  <EnrolledIn rdf:resource="#CRP_Y2_S1"/>
+  <EnrolledIn rdf:resource="#IARP_Y2_S1"/>
+  <EnrolledIn rdf:resource="#SD_Y3_S1"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">STUDENT</HasName>
+  <HasId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2025999</HasId>
+  <HasClassCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIACD</HasClassCode>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasYear>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C_TEST_Y3_S2">
+  <rdf:type rdf:resource="#Course"/>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C_TEST</HasName>
+  <HasYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</HasYear>
+  <HasSemester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</HasSemester>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lecture1">
+  <rdf:type rdf:resource="#Lecture"/>
+  <RequiresEquipment rdf:resource="#Projector_A.5.1"/>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767265200_A.5.1">
   <rdf:type rdf:resource="#RoomBooking"/>
-  <BookedInRoom rdf:resource="#G.5.1"/>
-  <BookedBy rdf:resource="#T_102"/>
-  <ForActivity rdf:resource="#lecture3"/>
-  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-05T09:00:00.000</HasStartTime>
-  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-05T13:00:00.000</HasEndTime>
-  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course: IARP</HasName>
+  <BookedInRoom rdf:resource="#A.5.1"/>
+  <BookedBy rdf:resource="#T_101"/>
+  <ForActivity rdf:resource="#meeting1"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T11:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T13:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
   <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</IsRelocated>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#lecture3">
+<owl:NamedIndividual rdf:about="#meeting1">
+  <rdf:type rdf:resource="#Meeting"/>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767276000_A.5.1">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedBy rdf:resource="#T_103"/>
+  <ForActivity rdf:resource="#meeting2"/>
+  <rdf:type rdf:resource="#UnsuitableProjectorRoomBooking"/>
+  <BookedInRoom rdf:resource="#D.1.1"/>
+  <rdf:type rdf:resource="#RelocatedBooking"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T14:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T15:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meeting: Meeting</HasName>
+  <OriginalStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T14:00:00.000</OriginalStartTime>
+  <OriginalEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T15:00:00.000</OriginalEndTime>
+  <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</IsRelocated>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#meeting2">
+  <rdf:type rdf:resource="#Meeting"/>
+  <RequiresEquipment rdf:resource="#Projector_A.5.1"/>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</RequiredCapacity>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#maintenanceactivity1">
+  <rdf:type rdf:resource="#MaintenanceActivity"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Booking_1767344400_B.2">
+  <rdf:type rdf:resource="#RoomBooking"/>
+  <BookedInRoom rdf:resource="#B.2"/>
+  <BookedBy rdf:resource="#T_102"/>
+  <ForActivity rdf:resource="#lecture2"/>
+  <HasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T09:00:00.000</HasStartTime>
+  <HasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-02T11:00:00.000</HasEndTime>
+  <HasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Course: CRP</HasName>
+  <IsRelocated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</IsRelocated>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lecture2">
   <rdf:type rdf:resource="#Lecture"/>
-  <RequiresEquipment rdf:resource="#Projector_G.5.1"/>
-  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</RequiredCapacity>
+  <RequiresEquipment rdf:resource="#Projector_B.2"/>
+  <RequiredCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</RequiredCapacity>
 </owl:NamedIndividual>
 
 

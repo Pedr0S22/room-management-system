@@ -3,10 +3,10 @@ import pathlib
 
 from agents.agent_room_booking import BookingAgent
 from owlready2 import *
-from dei_department import *
+from ontology.dei_department import *
 
 BASE_PATH = pathlib.Path(__file__).parent.resolve()
-ONTOLOGY_FILE = str(BASE_PATH / "dei_room_management.owl")
+ONTOLOGY_FILE = str(BASE_PATH / "ontology" /"dei_room_management.owl")
 
 owlready2.JAVA_EXE = "java"
 

@@ -200,7 +200,7 @@ def clean_onto():
         try:
             os.remove(ONTOLOGY_FILE)
             print(f"Successfully deleted Ontology!\n")
-            print("!! NOTICE !!\nThe program must be restart the to clear Python class definitions.")
+            print("!! NOTICE !!\nThe program must be restarted to clear Python class definitions.")
             
             time.sleep(2)
             

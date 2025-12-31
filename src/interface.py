@@ -6,6 +6,9 @@ from schedulers import planner
 from ontology.dei_department import *
 from datetime import datetime, date, time
 
+BASE_PATH = pathlib.Path(__file__).parent.resolve()
+ONTOLOGY_FILE = str(BASE_PATH / "ontology" / "dei_room_management.owl")
+
 # Initialization of Agent 1 (room booking manager)
 agent = BookingAgent(onto)
 

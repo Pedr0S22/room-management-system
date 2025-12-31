@@ -1,6 +1,6 @@
 import random
 from datetime import datetime, timedelta, time
-from ontology.dei_department import RoomBooking, save, sync_reasoner, MaintenanceActivity
+from ontology.dei_department import RoomBooking, save, MaintenanceActivity
 from agents.agent_room_booking import BookingAgent
 
 class MaintenanceAgent:
